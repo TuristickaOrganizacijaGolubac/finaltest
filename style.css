@@ -1,0 +1,27 @@
+/* Centering the body */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex; /* Enables Flexbox layout */
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    min-height: 100vh; /* Ensures full viewport height */
+    background-color: #f0f0f0;
+}
+
+/* Flipbook container */
+#flipbook {
+    width: 100vw; /* Responsive width */
+    height: 100vh;
+    aspect-ratio: 1 / 1; /* Maintains a square shape */
+    position: relative; /* Allows child elements (pages) to be absolute */
+}
+
+/* Individual pages */
+#flipbook .page {
+    background-color: white;
+    background-size: contain; /* Ensures the image fits within the page */
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); /* Adds a light shadow */
+}
