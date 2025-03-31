@@ -24,7 +24,7 @@ $(document).ready(function () {
     let touchStartX = 0;
     let touchEndX = 0;
 
-    // Detect touch events
+    // Detect touch events for swipe gestures
     flipbook.on('touchstart', function (e) {
         touchStartX = e.originalEvent.touches[0].pageX; // Record the start position of the touch
     });
@@ -43,9 +43,19 @@ $(document).ready(function () {
         }
     });
 
-    // Resize the flipbook dynamically
+    // Add keyboard navigation for flipping pages
+    $(document).keydown(function (e) {
+        if (e.key === 'ArrowLeft') {
+            flipbook.turn('previous'); // Turn to the previous page
+        } else if (e.key === 'ArrowRight') {
+            flipbook.turn('next'); // Turn to the next page
+        }
+    });
+
+    // Dynamically resize the flipbook
     $(window).resize(resizeFlipbook);
 
     // Perform initial resizing
     resizeFlipbook();
 });
+
